@@ -62,8 +62,8 @@ exports.mainnums = function mainnums(digit) {
     twiml.dial(optionActions[digit]);
     return twiml.toString();
   }
-
-  return redirectWelcome();
+  redirectWelcome();
+  return twiml.toString();
 };
 
 /**
