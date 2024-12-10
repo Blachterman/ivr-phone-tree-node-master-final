@@ -114,8 +114,7 @@ function salesresponse() {
    {voice: 'alice', language: 'en-GB'}
  );
 
- //twiml.dial('+15189296848');
- return twiml.toString();
+ return redirectWelcome();
 };
 
 /**
