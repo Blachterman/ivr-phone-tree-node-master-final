@@ -103,7 +103,7 @@ function companydir() {
    {voice: 'alice', language: 'en-GB'}
 );
   
-return twiml.toString();
+return redirectWelcome();
 };
   
 function salesresponse() {
