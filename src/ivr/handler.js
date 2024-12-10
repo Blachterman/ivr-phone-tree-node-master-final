@@ -42,6 +42,7 @@ exports.menu = function menu(digit) {
   const optionActions = {
     '1': salesresponse,
     '2': customerservice,
+    '3': companydir,
   };
 
   return (optionActions[digit])
@@ -94,6 +95,14 @@ function giveExtractionPointInstructions() {
  * Sales response - goes to Sales Number
  * @return {String}
  */
+function companydir() {
+    const twiml = new VoiceResponse();
+    twiml.say(
+      'Unfortunately the company directory is being updated at this time. ' +
+      'Returning to the main menu. ',
+      {voice: 'alice', language: 'en-GB'}
+      );
+  
 function salesresponse() {
    const twiml = new VoiceResponse();
    twiml.say(
