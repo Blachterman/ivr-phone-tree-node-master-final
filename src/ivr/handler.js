@@ -62,8 +62,8 @@ exports.mainnums = function mainnums(digit) {
     twiml.dial(optionActions[digit]);
     return twiml.toString();
   }
-  redirectWelcome();
-  return twiml.toString();
+  
+  return redirectWelcome();
 };
 
 /**
@@ -102,8 +102,8 @@ function companydir() {
     'Returning to the main menu. ',
    {voice: 'alice', language: 'en-GB'}
 );
-  
-return redirectWelcome();
+redirectWelcome();  
+return twiml.toString();
 };
   
 function salesresponse() {
