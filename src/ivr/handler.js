@@ -101,8 +101,8 @@ function companydir() {
       'Unfortunately the company directory is being updated at this time. ' +
       'Returning to the main menu. ',
       {voice: 'alice', language: 'en-GB'}
-    );
-  return redirectWelcome();
+);
+return redirectWelcome();
 };
   
 function salesresponse() {
@@ -111,10 +111,10 @@ function salesresponse() {
     'Transferring your call to our sales team. ' +
     'Please hold. ',
    {voice: 'alice', language: 'en-GB'}
- );
+);
 
-  twiml.dial('+15188219191');
-  return twiml.toString();
+twiml.dial('+15189296848');
+return twiml.toString();
 };
 
 /**
