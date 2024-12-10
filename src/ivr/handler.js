@@ -53,7 +53,7 @@ exports.mainnums = function mainnums(digit) {
   const optionActions = {
     '2': '+15182840665',
     '3': '+15182840665',
-    '4': '+15182840665',
+    '4': '+15189296848',
   };
 
   if (optionActions[digit]) {
