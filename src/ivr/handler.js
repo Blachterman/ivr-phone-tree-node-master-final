@@ -102,7 +102,7 @@ function companydir() {
       'Returning to the main menu. ',
       {voice: 'alice', language: 'en-GB'}
     );
-     return redirectWelcome();
+  return redirectWelcome();
 };
   
 function salesresponse() {
@@ -113,8 +113,8 @@ function salesresponse() {
    {voice: 'alice', language: 'en-GB'}
  );
 
-   twiml.dial('+15188219191');
-   return twiml.toString();
+  twiml.dial('+15188219191');
+  return twiml.toString();
 };
 
 /**
