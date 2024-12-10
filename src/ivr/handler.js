@@ -52,9 +52,9 @@ exports.menu = function menu(digit) {
 
 exports.mainnums = function mainnums(digit) {
   const optionActions = {
-    '2': '+15189296848',
-    '3': '+15189296848',
-    '4': '+15189296848',
+    '2': '+15184443708',
+    '3': '+15184443708',
+    '4': '+15184443708',
   };
 
   if (optionActions[digit]) {
@@ -114,7 +114,7 @@ function salesresponse() {
    {voice: 'alice', language: 'en-GB'}
 );
 
-twiml.dial('+15189296848');
+twiml.dial('+15187142929');
 return twiml.toString();
 };
 
