@@ -102,6 +102,7 @@ function companydir() {
       'Returning to the main menu. ',
       {voice: 'alice', language: 'en-GB'}
       );
+};
   
 function salesresponse() {
    const twiml = new VoiceResponse();
