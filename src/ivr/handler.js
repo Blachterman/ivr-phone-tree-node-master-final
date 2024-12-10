@@ -51,8 +51,8 @@ exports.menu = function menu(digit) {
 
 exports.mainnums = function mainnums(digit) {
   const optionActions = {
-    '2': '+15182840665',
-    '3': '+15182840665',
+    '2': '+15189296848',
+    '3': '+15189296848',
     '4': '+15189296848',
   };
 
