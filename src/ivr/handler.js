@@ -52,9 +52,9 @@ exports.menu = function menu(digit) {
 
 exports.mainnums = function mainnums(digit) {
   const optionActions = {
-    '2': '+15184443708',
-    '3': '+15184443708',
-    '4': '+15184443708',
+    '2': '+15182825515',
+    '3': '+15182825515',
+    '4': '+15182825515',
   };
 
   if (optionActions[digit]) {
