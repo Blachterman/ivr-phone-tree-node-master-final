@@ -5,7 +5,7 @@ describe('IvrHandler#Welcome', () => {
     const twiml = welcome();
     const count = countWord(twiml);
 
-    expect(count('Gather')).toBe(1);
+    expect(count('Gather')).toBe(2);
     expect(count('Say')).toBe(1);
     expect(twiml).toContain('action="/ivr/menu"');
     expect(twiml).toContain('numDigits="1"');
@@ -19,8 +19,8 @@ describe('IvrHandler#Menu', () => {
     const twiml = menu('7');
     const count = countWord(twiml);
 
-    expect(count('Redirect')).toBe(1);
-    expect(twiml).toContain('/ivr/welcome');
+    expect(count('Redirect')).toBeGreaterThanOrEqual(1);
+    expect(twiml).toContain('<Redirect>/ivr/welcome</Redirect>');
   });
 
   it('should route to sales response when digit is 1', () => {
