@@ -1,50 +1,53 @@
-const twilio = require('twilio');
-const VoiceResponse = twilio.twiml.VoiceResponse;
+const { welcome, menu } = require('../../src/ivr/handler');
 
-function welcome() {
-  const response = new VoiceResponse();
-  const gather = response.gather({
-    action: '/ivr/menu',
-    numDigits: 1,
-    method: 'POST'
+describe('IvrHandler#Welcome', () => {
+  it('should serve TwiML with gather', () => {
+    const twiml = welcome();
+    const count = countWord(twiml);
+
+    expect(count('Gather')).toBe(2);
+    expect(count('Say')).toBe(2);
+    expect(twiml).toContain('action="/ivr/menu"');
+    expect(twiml).toContain('numDigits="1"');
+    expect(twiml).toContain('loop="3"');
+    expect(twiml).toContain('Thanks for calling the E T Phone Home Service.');
+  });
+});
+
+describe('IvrHandler#Menu', () => {
+  it('should redirect to welcomes with digits other than 1 or 2', () => {
+    const twiml = menu();
+    const count = countWord(twiml);
+
+    expect(count('Say')).toBe(2);
+    expect(twiml).toContain('welcome');
   });
 
-  gather.say({ loop: 3 }, 'Thanks for calling the E T Phone Home Service.');
-  gather.say('Please press 1 for extraction instructions. Press 2 for planetary communications.');
+  it('should serve TwiML with say twice and hangup', () => {
+    const twiml = menu('1');
+    const count = countWord(twiml);
 
-  return response.toString();
+    expect(count('Say')).toBe(4);
+    expect(count('Hangup')).toBe(1);
+    expect(twiml).toContain('To get to your extraction point');
+    expect(twiml).toContain('Thank you for calling the ET Phone Home Service');
+  });
+
+  it('should serve TwiML with gather and say', () => {
+    const twiml = menu('2');
+    const count = countWord(twiml);
+
+    expect(count('Gather')).toBe(2);
+    expect(count('Say')).toBe(2);
+    expect(twiml).toContain('action="/ivr/menu"');
+    expect(twiml).toContain('numDigits="1"');
+    expect(twiml).toContain('To call the planet Broh doe As O G');
+  });
+});
+
+function countWord(paragraph) {
+  return (word) => {
+    const regex = new RegExp(`<${word}[ | /?>]|</${word}>`, 'g');
+    return (paragraph.match(regex) || []).length;
+  };
 }
-
-function menu(digit) {
-  const response = new VoiceResponse();
-
-  if (digit === '1') {
-    response.say('To get to your extraction point, get on your bike and go down the street. Then Left down an alley. Avoid the police cars. Turn left into an unfinished housing development. Fly over the roadblock. Go passed the moon. Soon after you will see your mother ship.');
-    response.say('Thank you for calling the ET Phone Home Service - the adventurous alien\'s first choice in intergalactic travel');
-    response.say('Stay safe and watch out for government agents.');
-    response.say('Transmission ending now.');
-    response.hangup();
-  } else if (digit === '2') {
-    const gather = response.gather({
-      action: '/ivr/menu',
-      numDigits: 1,
-      method: 'POST'
-    });
-
-    gather.say({
-      voice: 'alice',
-      language: 'en-GB',
-      loop: 3
-    }, 'To call the planet Broh doe As O G, press 2. To call the planet DuhGo bah, press 3. To call an oober asteroid to your location, press 4. To go back to the main menu, press the star key ');
-
-    response.say('Thank you for using our interstellar connection service.');
-  } else {
-    response.say('Invalid input. Redirecting you to the welcome menu.');
-    response.say('Please hold.');
-    response.redirect('/ivr/welcome');
-  }
-
-  return response.toString();
-}
-
-module.exports = { welcome, menu };
