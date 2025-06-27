@@ -24,8 +24,7 @@ exports.welcome = function welcome() {
   const gather = voiceResponse.gather({
     action: '/ivr/menu',
     numDigits: '1',
-    method: 'POST',
-    loop: 3
+    method: 'POST'
   });
 
   gather.say(
@@ -33,7 +32,8 @@ exports.welcome = function welcome() {
     'Thank you for calling You This Me and UTM  Healthcare. ' +
     'Please press 1 for Sales. ' +
     'Press 2 for technical support. ' +
-    'Press 3 for a company directory.'
+    'Press 3 for a company directory.',
+    { voice: 'alice', language: 'en-GB', loop: 3 }
   );
 
   return voiceResponse.toString();
