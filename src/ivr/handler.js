@@ -52,6 +52,10 @@ exports.menu = function menu(digit) {
 };
 
 exports.mainnums = function mainnums(digit) {
+  if (digit === '*') {
+    return redirectWelcome();
+  }
+
   const optionActions = {
     '2': '+15182825515',
     '3': '+15182825515',
@@ -63,7 +67,7 @@ exports.mainnums = function mainnums(digit) {
     twiml.dial(optionActions[digit]);
     return twiml.toString();
   }
-  
+
   return redirectWelcome();
 };
 
