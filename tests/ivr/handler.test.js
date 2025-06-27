@@ -74,7 +74,7 @@ describe('IvrHandler#Menu', () => {
   });
 });
 
-describe('IvrHandler#Planets', () => {
+describe('IvrHandler#planets', () => {
   it('should redirect to welcomes with digits other than 2, 3 or 4', () => {
     const twiml = planets();
     const count = countWord(twiml);
