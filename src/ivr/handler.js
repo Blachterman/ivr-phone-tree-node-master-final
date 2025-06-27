@@ -25,6 +25,7 @@ exports.welcome = function welcome() {
     action: '/ivr/menu',
     numDigits: '1',
     method: 'POST',
+    loop: 3
   });
 
   gather.say(
