@@ -1,4 +1,4 @@
-const {welcome, menu, planets} = require('../../src/ivr/handler');
+const {welcome, menu } = require('../../src/ivr/handler');
 
 describe('IvrHandler#Welcome', () => {
   it('should serve TwiML with gather', () => {
