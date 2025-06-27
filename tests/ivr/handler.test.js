@@ -7,10 +7,10 @@ describe('IvrHandler#Welcome', () => {
 
     expect(count('Gather')).toBe(2);
     expect(count('Say')).toBe(2);
-    expect(twiml).toContain('action="/ivr/menu"');
+    expect(twiml).toContain('action="/ivr/mainnums"');
     expect(twiml).toContain('numDigits="1"');
     expect(twiml).toContain('loop="3"');
-    expect(twiml).toContain('Thanks for calling the E T Phone Home Service.');
+    expect(twiml).toContain('Thank you for calling You This Me and UTM  Healthcare...');
   });
 });
 
@@ -39,7 +39,7 @@ describe('IvrHandler#Menu', () => {
 
     expect(count('Gather')).toBe(2);
     expect(count('Say')).toBe(2);
-    expect(twiml).toContain('action="/ivr/menu"');
+    expect(twiml).toContain('action="/ivr/mainnums"');
     expect(twiml).toContain('numDigits="1"');
     expect(twiml).toContain('To call the planet Broh doe As O G');
   });
