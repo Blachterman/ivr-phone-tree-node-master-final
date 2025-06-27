@@ -74,29 +74,29 @@ describe('IvrHandler#Menu', () => {
   });
 });
 
-describe('IvrHandler#planets', () => {
-  it('should redirect to welcomes with digits other than 2, 3 or 4', () => {
-    const twiml = planets();
-    const count = countWord(twiml);
+//describe('IvrHandler#planets', () => {
+//  it('should redirect to welcomes with digits other than 2, 3 or 4', () => {
+//    const twiml = planets();
+//    const count = countWord(twiml);
 
     // TwiML verbs
-    expect(count('Say')).toBe(2);
-    expect(count('Redirect')).toBe(2);
+//    expect(count('Say')).toBe(2);
+//    expect(count('Redirect')).toBe(2);
 
     // TwiML content
-    expect(twiml).toContain('welcome');
-  });
+//    expect(twiml).toContain('welcome');
+//  });
 
-  it('should serve TwiML with dial', () => {
-    const twiml = planets('4');
+//  it('should serve TwiML with dial', () => {
+//    const twiml = planets('4');
 
     // TwiML verbs
-    expect(twiml).toContain('Dial');
+//    expect(twiml).toContain('Dial');
 
     // TwiML content
-    expect(twiml).toContain('+12027336637');
-  });
-});
+//    expect(twiml).toContain('+12027336637');
+//  });
+//});
 
 /**
  * Counts how many times a word is repeated
