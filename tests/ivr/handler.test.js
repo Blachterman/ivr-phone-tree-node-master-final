@@ -26,7 +26,7 @@ describe('IvrHandler#Menu', () => {
   it('should route to sales response when digit is 1', () => {
     const twiml = menu('1');
     expect(twiml).toContain('Transferring your call to our sales team');
-    expect(twiml).toContain('<Dial>+15182825515</Dial>');
+    expect(twiml).toContain('<Dial>+15184443706</Dial>');
   });
 
   it('should route to customer service when digit is 2', () => {
