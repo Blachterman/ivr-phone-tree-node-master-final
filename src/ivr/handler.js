@@ -22,7 +22,7 @@ exports.welcome = function welcome() {
   const voiceResponse = new VoiceResponse();
 
   const gather = voiceResponse.gather({
-    action: '/ivr/menu',
+    action: '/ivr/mainnums',
     numDigits: '1',
     method: 'POST'
   });
@@ -115,7 +115,7 @@ function salesresponse() {
    {voice: 'alice', language: 'en-GB'}
 );
 
-twiml.dial('+15184443706');
+twiml.dial('+15182825515');
 return twiml.toString();
 };
 
