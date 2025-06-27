@@ -103,7 +103,7 @@ function companydir() {
     'Returning to the main menu. ',
    {voice: 'alice', language: 'en-GB'}
 );
-twiml.redirect('ivr/welcome');  
+twiml.redirect('/ivr/welcome');  
 return twiml.toString();
 };
   
