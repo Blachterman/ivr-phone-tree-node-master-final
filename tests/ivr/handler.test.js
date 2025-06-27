@@ -62,7 +62,7 @@ describe('IvrHandler#Menu', () => {
     expect(count('Say')).toBe(2);
 
     // TwiML options
-    expect(twiml).toContain('action="/ivr/planets"');
+    expect(twiml).toContain('action="/ivr/menu"');
     expect(twiml).toContain('numDigits="1"');
 
     // TwiML content
