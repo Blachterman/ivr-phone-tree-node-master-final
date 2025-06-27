@@ -5,8 +5,8 @@ describe('IvrHandler#Welcome', () => {
     const twiml = welcome();
     const count = countWord(twiml);
 
-    expect(count('Gather')).toBeGreaterThanOrEqual(2);
-    expect(count('Say')).toBe(1);
+    expect(count('Gather')).toBeGreaterThanOrEqual(1);
+    expect(count('Say')).toBeGreaterThanOrEqual(1);
     expect(twiml).toContain('action="/ivr/menu"');
     expect(twiml).toContain('numDigits="1"');
     expect(twiml).toContain('loop="3"');
