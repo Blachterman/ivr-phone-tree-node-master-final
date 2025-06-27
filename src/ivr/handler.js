@@ -22,7 +22,7 @@ exports.welcome = function welcome() {
   const voiceResponse = new VoiceResponse();
 
   const gather = voiceResponse.gather({
-    action: '/ivr/mainnums',
+    action: '/ivr/menu',
     numDigits: '1',
     method: 'POST'
   });
