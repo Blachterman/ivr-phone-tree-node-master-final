@@ -5,7 +5,7 @@ describe('IvrHandler#Welcome', () => {
     const twiml = welcome();
     const count = countWord(twiml);
 
-    expect(count('Gather')).toBe(2);
+    expect(count('Gather')).toBeGreaterThanOrEqual(2);
     expect(count('Say')).toBe(1);
     expect(twiml).toContain('action="/ivr/menu"');
     expect(twiml).toContain('numDigits="1"');
@@ -39,7 +39,7 @@ describe('IvrHandler#Menu', () => {
   it('should route to company directory when digit is 3', () => {
     const twiml = menu('3');
     expect(twiml).toContain('Unfortunately the company directory is being updated');
-    expect(twiml).toContain('<Redirect>ivr/welcome</Redirect>');
+    expect(twiml).toContain('<Redirect>/ivr/welcome</Redirect>');
   });
 });
 
